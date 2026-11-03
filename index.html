@@ -1,0 +1,265 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Proofline — proof for every AI agent purchase</title>
+  <meta name="description" content="When an AI agent buys something and the customer disputes it, Proofline holds the proof. Sealed evidence records and dispute responses for Shopify and Stripe merchants.">
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'><rect width='32' height='32' rx='7' fill='%2312203A'/><path d='M9 16.5l4.5 4.5L23 11' stroke='%23F0B429' stroke-width='3.2' fill='none' stroke-linecap='round' stroke-linejoin='round'/></svg>">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,500;12..96,700;12..96,800&family=Public+Sans:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <a class="skip" href="#main">Skip to content</a>
+
+  <header class="site-header">
+    <div class="wrap header-inner">
+      <a class="brand" href="#top" aria-label="Proofline home">
+        <svg viewBox="0 0 32 32" aria-hidden="true"><rect width="32" height="32" rx="7"/><path d="M9 16.5l4.5 4.5L23 11"/></svg>
+        Proofline
+      </a>
+      <nav class="nav" aria-label="Main">
+        <a href="#how">How it works</a>
+        <a href="#exposure">Exposure</a>
+        <a href="#pricing">Pricing</a>
+        <a href="#faq">FAQ</a>
+      </nav>
+      <a class="btn btn-small" href="#partner">Get a free scan</a>
+    </div>
+  </header>
+
+  <main id="main">
+    <!-- HERO: live evidence record -->
+    <section class="hero" id="top">
+      <div class="wrap hero-grid">
+        <div class="hero-copy">
+          <h1>When an AI agent buys it and the customer disputes it, you’ll have the proof.</h1>
+          <p class="lede">Proofline records what the customer asked their agent to buy, gets their confirmation when it matters, and seals it all in a tamper-proof record. When a chargeback lands months later, the response writes itself.</p>
+          <div class="hero-actions">
+            <a class="btn" href="#partner">Become a design partner</a>
+            <a class="btn btn-ghost" href="#demo">Try the live record</a>
+          </div>
+          <ul class="facts">
+            <li><strong>No checkout changes.</strong> Runs beside your store through webhooks.</li>
+            <li><strong>No card data.</strong> Nothing that puts you deeper into PCI scope.</li>
+            <li><strong>Works with Shopify and Stripe.</strong> Install in minutes.</li>
+          </ul>
+        </div>
+
+        <div class="tag" id="demo" aria-live="polite">
+          <div class="tag-hole" aria-hidden="true"></div>
+          <div class="tag-head">
+            <div>
+              <p class="tag-kicker">Evidence record</p>
+              <p class="tag-id" id="recId">Order #—</p>
+            </div>
+            <div class="stamp" id="stamp" aria-hidden="true">Sealed</div>
+          </div>
+
+          <fieldset class="scenarios">
+            <legend>Pick an order</legend>
+            <label><input type="radio" name="scn" value="headphones" checked><span>Headphones <b>$320</b></span></label>
+            <label><input type="radio" name="scn" value="tickets"><span>Concert tickets <b>$480</b></span></label>
+            <label><input type="radio" name="scn" value="flight"><span>Flight <b>$612</b></span></label>
+          </fieldset>
+
+          <dl class="fields">
+            <div><dt>Bought by</dt><dd id="fAgent">—</dd></div>
+            <div><dt>Customer’s instruction</dt><dd id="fIntent">—</dd></div>
+            <div><dt>Item</dt><dd id="fItem">—</dd></div>
+            <div><dt>Confirmation</dt><dd id="fConfirm">—</dd></div>
+            <div class="wide"><dt>Record fingerprint</dt><dd id="fHash" class="mono">—</dd></div>
+            <div class="wide"><dt>Kept until</dt><dd id="fKeep">—</dd></div>
+          </dl>
+
+          <ol class="log" id="log"></ol>
+
+          <div class="tag-foot">
+            <div class="progress" aria-hidden="true"><span id="bar"></span></div>
+            <button class="btn" id="advance" type="button">Place agent order</button>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- PROBLEM -->
+    <section class="problem">
+      <div class="wrap problem-grid">
+        <h2>Agent checkouts erase the evidence banks look for.</h2>
+        <div class="problem-body">
+          <p>Disputes are usually won with signals from a human session: a device, a login, clicks, a browsing trail. When software places the order, most of that disappears. The customer says “I never approved this,” and it’s your word against theirs.</p>
+          <p>Agent-completed orders more than doubled in a single quarter this year, from about 0.27% to 0.68% of US online orders. The disputes follow a month or two later.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- HOW -->
+    <section class="how" id="how">
+      <div class="wrap">
+        <h2>How it works</h2>
+        <ol class="steps">
+          <li>
+            <span class="step-n">1</span>
+            <h3>Spot agent orders</h3>
+            <p>Every order is checked for agent signals and tagged, with the reason shown so you can correct it.</p>
+          </li>
+          <li>
+            <span class="step-n">2</span>
+            <h3>Confirm when it matters</h3>
+            <p>High-value, final-sale or first-time-agent orders get a one-tap confirmation from the customer. You set the rules.</p>
+          </li>
+          <li>
+            <span class="step-n">3</span>
+            <h3>Seal the record</h3>
+            <p>Instructions, confirmation, order and delivery proof are signed, chained and locked for 540 days.</p>
+          </li>
+          <li>
+            <span class="step-n">4</span>
+            <h3>Answer the dispute</h3>
+            <p>We build the response for the exact reason code and submit it, or hand the evidence to your chargeback vendor.</p>
+          </li>
+        </ol>
+      </div>
+    </section>
+
+    <!-- EXPOSURE CALCULATOR -->
+    <section class="exposure" id="exposure">
+      <div class="wrap exposure-grid">
+        <div>
+          <h2>What agent disputes could cost you</h2>
+          <p class="muted">Move the sliders to match your store. These are rough estimates; the free scan uses your real order data.</p>
+
+          <div class="slider">
+            <label for="rev">Online revenue per month <output id="revOut"></output></label>
+            <input type="range" id="rev" min="200000" max="20000000" step="100000" value="3000000">
+          </div>
+          <div class="slider">
+            <label for="share">Share placed by AI agents <output id="shareOut"></output></label>
+            <input type="range" id="share" min="0.5" max="25" step="0.5" value="3">
+          </div>
+          <div class="slider">
+            <label for="rate">Dispute rate on those orders <output id="rateOut"></output></label>
+            <input type="range" id="rate" min="0.2" max="3" step="0.1" value="1">
+          </div>
+        </div>
+
+        <div class="readout" aria-live="polite">
+          <div class="readout-row">
+            <span>Agent orders disputed each year</span>
+            <strong id="oDisputed">$0</strong>
+          </div>
+          <div class="bars">
+            <div class="bar-row">
+              <span>Won back without proof</span>
+              <div class="track"><div class="fill fill-weak" id="bWithout"></div></div>
+              <strong id="oWithout">$0</strong>
+            </div>
+            <div class="bar-row">
+              <span>Won back with a sealed record</span>
+              <div class="track"><div class="fill fill-strong" id="bWith"></div></div>
+              <strong id="oWith">$0</strong>
+            </div>
+          </div>
+          <div class="readout-total">
+            <span>Extra revenue kept each year</span>
+            <strong id="oGain">$0</strong>
+          </div>
+          <p class="fine">Assumes about 20% of these disputes are won without agent evidence and about 55% with it. Prevention through confirmations is not counted.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- PRICING -->
+    <section class="pricing" id="pricing">
+      <div class="wrap">
+        <h2>Pricing</h2>
+        <p class="muted">Design partners get everything free for three months.</p>
+        <div class="plans">
+          <article class="plan">
+            <h3>Exposure scan</h3>
+            <p class="price">Free</p>
+            <p>See how many of your orders already look agent-driven and what your recent disputes cost.</p>
+          </article>
+          <article class="plan plan-main">
+            <h3>Evidence vault</h3>
+            <p class="price">From $199<span>/month</span></p>
+            <p>Agent tagging, confirmation rules, sealed records kept 540 days, and exports for your team.</p>
+          </article>
+          <article class="plan">
+            <h3>Dispute responses</h3>
+            <p class="price">15–25%<span> of what we win back</span></p>
+            <p>Responses built and submitted for you. Nothing recovered, nothing owed. Fees refunded if a win is reversed.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- FAQ -->
+    <section class="faq" id="faq">
+      <div class="wrap faq-grid">
+        <h2>Questions merchants ask</h2>
+        <div class="faq-list">
+          <details>
+            <summary>Will this slow down my checkout?</summary>
+            <p>No. Proofline listens to order and payment events after they happen. It never sits between your customer and your payment provider.</p>
+          </details>
+          <details>
+            <summary>Will confirmations cost me sales?</summary>
+            <p>Defaults are light: only high-value, final-sale and first-time-agent orders. You set the thresholds, and a weekly report shows confirmed versus dropped orders so you can tune them.</p>
+          </details>
+          <details>
+            <summary>I already use a chargeback service. Does this clash?</summary>
+            <p>It shouldn’t. You choose who files each dispute. Proofline can hand sealed evidence to your existing vendor instead of filing itself, so nothing gets answered twice.</p>
+          </details>
+          <details>
+            <summary>What data do you store?</summary>
+            <p>Order details, the customer’s instruction to their agent, confirmations and delivery proof. Never card numbers. Personal data is minimized and encrypted, and you can export or delete it.</p>
+          </details>
+          <details>
+            <summary>What happens to my records if I leave?</summary>
+            <p>You can export every record at any time, including after cancelling, for the rest of its retention period.</p>
+          </details>
+        </div>
+      </div>
+    </section>
+
+    <!-- PARTNER FORM -->
+    <section class="partner" id="partner">
+      <div class="wrap partner-grid">
+        <div>
+          <h2>Become one of 15 design partners</h2>
+          <p>Three months free, a direct line to the founder, and a free exposure scan of your store. In return we ask for honest feedback each week.</p>
+          <p class="muted">Best fit: Shopify or Stripe stores selling tickets, electronics or travel with $5M or more in yearly online sales.</p>
+        </div>
+        <!-- Replace YOUR_FORM_ID with your Formspree form id: https://formspree.io -->
+        <form class="form" id="partnerForm" action="https://formspree.io/f/YOUR_FORM_ID" method="POST" novalidate>
+          <label>Work email<input type="email" name="email" required autocomplete="email" placeholder="you@store.com"></label>
+          <label>Store website<input type="url" name="store" required placeholder="https://"></label>
+          <label>Platform
+            <select name="platform">
+              <option>Shopify</option>
+              <option>Stripe</option>
+              <option>Both</option>
+              <option>Something else</option>
+            </select>
+          </label>
+          <label>What do you sell?<input type="text" name="category" placeholder="Event tickets, electronics, travel…"></label>
+          <button class="btn" type="submit">Request my free scan</button>
+          <p class="form-msg" id="formMsg" role="status"></p>
+        </form>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="wrap footer-inner">
+      <p>© <span id="year"></span> Proofline. Evidence records for AI agent purchases.</p>
+      <p><a href="mailto:hello@example.com">hello@example.com</a></p>
+    </div>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>
