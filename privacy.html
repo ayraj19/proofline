@@ -1,0 +1,101 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Privacy Policy — Proofline</title>
+  <meta name="description" content="What personal data Proofline processes, why, for how long, and who it is shared with.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,500;12..96,700;12..96,800&family=Public+Sans:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <header class="site-header">
+    <div class="wrap header-inner">
+      <a class="brand" href="./" aria-label="Proofline home">Proofline</a>
+    </div>
+  </header>
+
+  <main class="wrap legal">
+    <h1>Privacy Policy</h1>
+    <p class="legal-meta">Effective 4 November 2026 · Version 1</p>
+
+    <p>Proofline ("we", "us") helps online merchants keep evidence of purchases made by AI shopping agents, ask customers to confirm those purchases when the merchant chooses, and respond to payment disputes. This policy explains what personal data we process, why, for how long, and with whom.</p>
+    <p>Proofline is operated by Ayush Raj as a sole proprietor trading as Proofline. Contact: <a href="mailto:CONTACT_EMAIL">CONTACT_EMAIL</a>.</p>
+
+    <h2>Our role</h2>
+    <ul>
+      <li><strong>For merchants' customer data</strong> (the people who buy from stores using Proofline), we act as a <strong>processor</strong>: we process it on the merchant's behalf and instructions, under our <a href="dpa.html">Data Processing Agreement</a>. The merchant is the controller. Customers who want to exercise privacy rights should contact the merchant; we help the merchant respond.</li>
+      <li><strong>For merchant account data</strong> (store domain, the Shopify staff user who opened the app, API key names), we act as a <strong>controller</strong>.</li>
+    </ul>
+
+    <h2>What we collect</h2>
+    <h3>When a merchant's store receives an order Proofline needs to record</h3>
+    <p>We store orders placed by an AI agent, orders referred by an AI assistant, and orders the merchant's rules flag. Ordinary orders are not stored.</p>
+    <ul>
+      <li><strong>Order details:</strong> order number, items (title, SKU, quantity, price), total and currency, order date, cancellation and fulfillment status, carrier and tracking numbers.</li>
+      <li><strong>How the order was placed:</strong> the sales channel or app that created it, the referring website's host name and <code>utm_source</code> (never the full referring URL), and any agent or spending-mandate details the merchant sends us.</li>
+      <li><strong>Customer email address</strong>, only when the merchant's rules call for a confirmation or purchase-summary email. It is encrypted and used only to send that email.</li>
+      <li><strong>Keyed hashes</strong> of the customer's email and phone, and of the IP address used to answer a confirmation. These let a merchant show that the person who confirmed matches the order, without us storing the identifiers themselves. Hashes use a separate key per merchant and cannot be matched across merchants.</li>
+      <li><strong>Confirmation response:</strong> whether the customer confirmed or declined, when, and the browser's user-agent string.</li>
+    </ul>
+    <h3>When a merchant runs the free exposure scan</h3>
+    <p>With a read-only key the merchant provides, we read up to 90 days of payment, dispute and order history to calculate dispute ratios and AI-referred order counts. We keep only the aggregate report. The key is used once and never stored.</p>
+    <h3>What we never collect</h3>
+    <p>Card numbers, card security codes, cardholder names, customer names, and shipping or billing addresses.</p>
+
+    <h2>Why we use it</h2>
+    <ul>
+      <li>To create tamper-evident evidence records the merchant can use to prevent and contest payment disputes.</li>
+      <li>To send customers the confirmation or purchase-summary email the merchant's rules require, and record their answer.</li>
+      <li>To produce the exposure scan the merchant requested.</li>
+    </ul>
+    <p>We do not sell personal data, use it for advertising, or use it to train models. Where the GDPR or similar laws apply, merchants rely on legitimate interests (fraud prevention and defending legal claims) or contract; we process on their instructions.</p>
+
+    <h2>How long we keep it</h2>
+    <table class="legal-table">
+      <tr><th>Data</th><th>Kept for</th></tr>
+      <tr><td>Customer email address (encrypted)</td><td>90 days, or until a redaction request, whichever is sooner</td></tr>
+      <tr><td>Raw order notifications from Shopify (encrypted)</td><td>7 days after processing</td></tr>
+      <tr><td>Evidence records (hashed identifiers, order and confirmation details)</td><td>540 days, the card networks' dispute window. Records are stored write-once and cannot be altered or deleted before then.</td></tr>
+      <tr><td>Exposure scan reports (aggregates only)</td><td>Until the merchant asks us to delete them</td></tr>
+      <tr><td>Shopify access tokens (encrypted)</td><td>Until the app is uninstalled</td></tr>
+    </table>
+
+    <h2>Who we share it with</h2>
+    <p>Only the service providers we need to run Proofline, each bound by its own data protection terms:</p>
+    <table class="legal-table">
+      <tr><th>Provider</th><th>Purpose</th><th>Location</th></tr>
+      <tr><td>Google Cloud</td><td>Application hosting, evidence storage, secrets, logs</td><td>United States</td></tr>
+      <tr><td>Neon</td><td>Database</td><td>United States</td></tr>
+      <tr><td>Resend</td><td>Sending confirmation emails</td><td>United States</td></tr>
+      <tr><td>Shopify</td><td>The platform the app runs on</td><td>Per Shopify's terms</td></tr>
+    </table>
+    <p>We disclose data to authorities only when legally required, and tell the affected merchant unless the law forbids it.</p>
+
+    <h2>Security</h2>
+    <p>Data is encrypted in transit and at rest; customer emails and access tokens are additionally encrypted by our application; each merchant's data is isolated at the database level; evidence records are signed and hash-chained. Details are on our <a href="security.html">Security page</a>.</p>
+
+    <h2>Your rights</h2>
+    <p>Customers can ask the merchant they bought from to access or delete their data. When Shopify sends us a customer redaction request, we delete that customer's stored email address. Hashed identifiers in evidence records are kept until their retention period ends, because they are needed to defend payment disputes; they cannot identify a person without the merchant's key. We answer data access requests within 30 days.</p>
+    <p>Merchants can ask us at <a href="mailto:CONTACT_EMAIL">CONTACT_EMAIL</a> for a copy or deletion of their account data. When a merchant uninstalls the app, we revoke our access immediately and delete stored contacts and pending notifications within 48 hours of Shopify's shop-redaction request.</p>
+
+    <h2>International transfers</h2>
+    <p>Our providers process data in the United States. Where the law requires it, transfers are covered by appropriate safeguards such as the European Commission's Standard Contractual Clauses.</p>
+
+    <h2>Changes</h2>
+    <p>We will post updates here and tell merchants by email before material changes take effect.</p>
+
+    <h2>Contact</h2>
+    <p><a href="mailto:CONTACT_EMAIL">CONTACT_EMAIL</a></p>
+  </main>
+
+  <footer class="site-footer">
+    <div class="wrap footer-inner">
+      <p>© 2026 Proofline</p>
+      <p><a href="privacy.html">Privacy</a> · <a href="dpa.html">DPA</a> · <a href="security.html">Security</a></p>
+    </div>
+  </footer>
+</body>
+</html>

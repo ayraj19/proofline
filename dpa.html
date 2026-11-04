@@ -1,0 +1,74 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Data Processing Agreement — Proofline</title>
+  <meta name="description" content="The data processing agreement between Proofline and every merchant that uses it.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,500;12..96,700;12..96,800&family=Public+Sans:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <header class="site-header">
+    <div class="wrap header-inner">
+      <a class="brand" href="./" aria-label="Proofline home">Proofline</a>
+    </div>
+  </header>
+
+  <main class="wrap legal">
+    <h1>Data Processing Agreement</h1>
+    <p class="legal-meta">Effective 4 November 2026 · Version 1</p>
+
+    <p>This Data Processing Agreement ("DPA") forms part of the agreement between Proofline, operated by Ayush Raj as a sole proprietor ("Processor"), and each merchant that installs or uses Proofline ("Controller"). It applies automatically when a merchant installs the Proofline app or uses the Proofline API. A countersigned copy is available on request at <a href="mailto:CONTACT_EMAIL">CONTACT_EMAIL</a>.</p>
+
+    <h2>1. Subject matter and duration</h2>
+    <p>The Processor processes personal data of the Controller's customers to provide Proofline: recording evidence of AI-agent and flagged orders, sending customer confirmation emails under the Controller's rules, and producing exposure scans. Processing lasts while the Controller uses Proofline, plus the retention periods in section 9.</p>
+
+    <h2>2. Data and data subjects</h2>
+    <ul>
+      <li><strong>Data subjects:</strong> the Controller's customers and prospective customers.</li>
+      <li><strong>Personal data:</strong> customer email address; keyed hashes of email, phone and IP address; order identifiers and contents; confirmation responses and browser user-agent; fulfillment and tracking details.</li>
+      <li><strong>Not processed:</strong> special category data, payment card numbers, card security codes, names, and addresses.</li>
+    </ul>
+
+    <h2>3. Instructions</h2>
+    <p>The Processor processes personal data only on the Controller's documented instructions: this DPA, the Controller's configuration of Proofline (including its confirmation rules), and its use of the Proofline API. The Processor will tell the Controller if it believes an instruction breaks data protection law.</p>
+
+    <h2>4. Confidentiality</h2>
+    <p>Anyone the Processor authorizes to process personal data is bound by confidentiality. Today that is only the Processor's operator.</p>
+
+    <h2>5. Security</h2>
+    <p>The Processor implements and maintains the technical and organizational measures described on the <a href="security.html">Security page</a>, including encryption in transit and at rest, per-merchant isolation, least-privilege access with two-factor authentication, access logging, write-once evidence storage, and an incident response plan.</p>
+
+    <h2>6. Sub-processors</h2>
+    <p>The Controller authorizes these sub-processors: Google Cloud (hosting, storage, logging), Neon (database) and Resend (email delivery). The Processor will give at least 30 days' notice by email before adding or replacing one, and the Controller may object on reasonable data protection grounds, in which case either party may end the service. The Processor imposes data protection terms on each sub-processor at least as protective as this DPA and remains responsible for them.</p>
+
+    <h2>7. Assistance</h2>
+    <p>The Processor will help the Controller respond to data subject requests (including through Shopify's compliance webhooks), and with security, breach notification and data protection impact assessments, as far as Proofline's nature allows.</p>
+
+    <h2>8. Personal data breaches</h2>
+    <p>The Processor will notify the Controller without undue delay, and in any case within 48 hours of becoming aware of a personal data breach affecting the Controller's data, with the information then available about its nature, likely consequences and the measures taken. Updates follow as more is known.</p>
+
+    <h2>9. Deletion and return</h2>
+    <p>Customer email addresses are deleted after 90 days. On uninstall, access is revoked at once and stored contacts are deleted within 48 hours of Shopify's shop-redaction request. Evidence records are held in write-once storage for 540 days from creation to defend payment disputes and cannot be deleted earlier; the Controller instructs this retention by using Proofline, and they are deleted when it ends. The Controller can export its evidence records through the API at any time before then.</p>
+
+    <h2>10. Audits</h2>
+    <p>The Processor will make available the information reasonably necessary to demonstrate compliance with this DPA and answer reasonable written security questionnaires once a year, or after a breach.</p>
+
+    <h2>11. International transfers</h2>
+    <p>Where personal data subject to the GDPR or UK GDPR is transferred to a country without an adequacy decision, the parties agree to the European Commission's Standard Contractual Clauses (controller-to-processor module) and the UK Addendum, incorporated by reference.</p>
+
+    <h2>12. General</h2>
+    <p>If this DPA conflicts with any other agreement between the parties about personal data, this DPA prevails. It is governed by the laws of GOVERNING_LAW.</p>
+  </main>
+
+  <footer class="site-footer">
+    <div class="wrap footer-inner">
+      <p>© 2026 Proofline</p>
+      <p><a href="privacy.html">Privacy</a> · <a href="dpa.html">DPA</a> · <a href="security.html">Security</a></p>
+    </div>
+  </footer>
+</body>
+</html>

@@ -209,7 +209,7 @@
       msg.textContent = "Request sent. You’ll hear back within two business days.";
       msg.classList.add("ok");
     } catch {
-      msg.textContent = "Couldn’t send the request. Check your connection, or email hello@example.com.";
+      msg.textContent = "Couldn’t send the request. Check your connection, or email CONTACT_EMAIL.";
       msg.classList.add("err");
     } finally {
       b.disabled = false; b.textContent = "Request my free scan";

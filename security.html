@@ -1,0 +1,92 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Security — Proofline</title>
+  <meta name="description" content="How Proofline protects merchant and customer data: encryption, access control, logging, data loss prevention and incident response.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,500;12..96,700;12..96,800&family=Public+Sans:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <header class="site-header">
+    <div class="wrap header-inner">
+      <a class="brand" href="./" aria-label="Proofline home">Proofline</a>
+    </div>
+  </header>
+
+  <main class="wrap legal">
+    <h1>Security</h1>
+    <p class="legal-meta">Effective 4 November 2026 · Version 1 · Reviewed every 6 months</p>
+    <p>Proofline holds evidence that merchants rely on in payment disputes, so it is built to keep data minimal, encrypted, isolated and unalterable. To report a vulnerability, email <a href="mailto:CONTACT_EMAIL">CONTACT_EMAIL</a>.</p>
+
+    <h2>Data minimization</h2>
+    <ul>
+      <li>Only orders that need evidence are stored: agent orders, AI-referred orders, and orders the merchant's rules flag.</li>
+      <li>We never collect card numbers, card security codes, names or addresses.</li>
+      <li>Customer email is stored only when a confirmation email is required, and is deleted after 90 days. Evidence records hold keyed hashes, not identifiers.</li>
+    </ul>
+
+    <h2>Encryption</h2>
+    <ul>
+      <li><strong>In transit:</strong> HTTPS only, for the app, the API, webhooks and the database connection (TLS with certificate verification).</li>
+      <li><strong>At rest:</strong> our database (Neon) and storage (Google Cloud) encrypt all data and backups at rest.</li>
+      <li><strong>Application layer:</strong> customer emails, Shopify access tokens and raw webhook payloads are additionally encrypted with AES-256-GCM, bound to the merchant and record they belong to.</li>
+      <li><strong>Secrets</strong> live in Google Secret Manager, never in code or repositories.</li>
+    </ul>
+
+    <h2>Isolation and integrity</h2>
+    <ul>
+      <li>Each merchant's data is isolated twice: every query is scoped to the merchant, and Postgres row-level security blocks access to other merchants' rows even if a query forgot to.</li>
+      <li>Evidence is append-only: the database rejects edits and deletions, events form a hash chain per merchant, and each evidence version is signed (Ed25519). Our public key is published at <code>/.well-known/proofline-signing-key</code> so anyone can verify a record.</li>
+      <li>Evidence copies are written once to storage with retention lock and cannot be overwritten or deleted before their retention ends.</li>
+    </ul>
+
+    <h2>Access control</h2>
+    <ul>
+      <li>Only Proofline's operator has administrative access to production. Every account with access (Google Cloud, Shopify, GitHub, Neon, Resend) requires a strong unique password and two-factor authentication.</li>
+      <li>The running application uses a dedicated service account that can only read its own secrets and create and read evidence objects. It has no permission to delete evidence.</li>
+      <li>Production customer data is never copied to development. Development and tests use synthetic data and development stores.</li>
+    </ul>
+
+    <h2>Logging</h2>
+    <ul>
+      <li>Google Cloud audit logs record administrative activity and every read of secrets and evidence storage (data access logs).</li>
+      <li>The application keeps an audit log of installs, uninstalls, policy changes, API key changes and privacy requests.</li>
+      <li>Request logs never contain credentials, customer contact details or the tokens in confirmation links; those are masked.</li>
+    </ul>
+
+    <h2>Data loss prevention</h2>
+    <ol>
+      <li><strong>Prevent exposure:</strong> minimization, encryption and isolation as above; no customer data in logs, email bodies beyond the order summary, or local machines.</li>
+      <li><strong>Prevent loss:</strong> evidence is stored twice (database and write-once storage) and cannot be deleted early; the database supports point-in-time restore.</li>
+      <li><strong>Detect:</strong> integrity checks recompute the evidence hash chain and compare each record with its write-once copy; a billing alert flags unusual usage.</li>
+      <li><strong>Recover:</strong> restore the database to a point in time, recover evidence from its signed write-once copies, and rotate any exposed secret through Secret Manager.</li>
+    </ol>
+
+    <h2>Incident response</h2>
+    <p>An incident is any event that may compromise the confidentiality, integrity or availability of merchant or customer data. The operator is the incident lead.</p>
+    <ol>
+      <li><strong>Report:</strong> anyone can report a suspected incident to <a href="mailto:CONTACT_EMAIL">CONTACT_EMAIL</a>. Alerts and log reviews also open incidents.</li>
+      <li><strong>Triage (within 24 hours):</strong> confirm what happened, which data and which merchants are affected, and rate severity.</li>
+      <li><strong>Contain:</strong> rotate affected secrets (database credentials, Shopify client secret, email key, encryption keys as needed), revoke API keys and tokens, block the attack path, and preserve logs as evidence.</li>
+      <li><strong>Notify:</strong> affected merchants without undue delay and within 48 hours of confirming a breach of their data, with what happened, what data, and what to do; Shopify as its Partner terms require; and authorities where the law requires.</li>
+      <li><strong>Recover:</strong> restore service and data, verify evidence integrity, and watch for recurrence.</li>
+      <li><strong>Review (within 7 days):</strong> write down the cause, the timeline and the fixes, and update this page and our controls.</li>
+    </ol>
+    <p>This plan is rehearsed at least once a year.</p>
+
+    <h2>Shopify privacy requests</h2>
+    <p>Proofline handles Shopify's mandatory privacy webhooks: customer data requests are answered within 30 days, customer redaction deletes stored contact details, and shop redaction deletes the shop's stored contacts and pending notifications. See the <a href="privacy.html">Privacy Policy</a> for what is retained and why.</p>
+  </main>
+
+  <footer class="site-footer">
+    <div class="wrap footer-inner">
+      <p>© 2026 Proofline</p>
+      <p><a href="privacy.html">Privacy</a> · <a href="dpa.html">DPA</a> · <a href="security.html">Security</a></p>
+    </div>
+  </footer>
+</body>
+</html>

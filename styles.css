@@ -308,3 +308,20 @@ input[type="range"]::-moz-range-thumb { width: 20px; height: 20px; border-radius
   html { scroll-behavior: auto; }
   *, *::before, *::after { transition: none !important; animation: none !important; }
 }
+
+/* Legal and policy pages */
+.header-inner { display: flex; align-items: center; justify-content: space-between; gap: 1rem; }
+.legal { max-width: 46rem; padding: clamp(2rem, 6vw, 4rem) 0 4rem; }
+.legal h1 { margin-bottom: .2em; }
+.legal h2 { font-size: 1.35rem; margin: 2.2rem 0 .6rem; }
+.legal h3 { font-size: 1.05rem; margin: 1.4rem 0 .4rem; }
+.legal p, .legal li { color: var(--ink-2); }
+.legal strong { color: var(--ink); }
+.legal ul, .legal ol { padding-left: 1.3rem; }
+.legal li { margin-bottom: .45rem; }
+.legal code { font-family: var(--mono); font-size: .88em; }
+.legal-meta { font-family: var(--mono); font-size: .85rem; margin-top: 0; }
+.legal-table { width: 100%; border-collapse: collapse; margin: .8rem 0 1.2rem; font-size: .95rem; }
+.legal-table th, .legal-table td { text-align: left; vertical-align: top; padding: .55rem .7rem; border-bottom: 1px solid var(--line); }
+.legal-table th { color: var(--ink); font-weight: 600; }
+.legal-table td { color: var(--ink-2); }
