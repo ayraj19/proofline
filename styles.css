@@ -171,6 +171,32 @@ p { margin: 0 0 1em; max-width: 62ch; }
 .tag-foot .btn { background: var(--tag); border-color: var(--tag); color: #12203A; min-width: 12.5rem; }
 .tag-foot .btn:hover { background: var(--tag-deep); border-color: var(--tag-deep); }
 
+/* Watch: explainer video */
+.watch { padding: clamp(2.5rem, 6vw, 4.5rem) 0 clamp(3rem, 7vw, 5.5rem); }
+.watch-head { max-width: 46rem; margin-bottom: 1.6rem; }
+.watch-head .lede { margin: 0; }
+.player {
+  position: relative; aspect-ratio: 16 / 9; border-radius: 16px; overflow: hidden;
+  background: #E9EDF2; border: 1.5px solid var(--line);
+  box-shadow: 0 1px 0 var(--line), 0 32px 64px -36px rgba(18, 32, 58, .5);
+}
+.player-video { display: block; width: 100%; height: 100%; object-fit: cover; }
+.player-play {
+  position: absolute; left: clamp(.8rem, 2.5vw, 1.6rem); bottom: clamp(.8rem, 2.5vw, 1.6rem);
+  display: inline-flex; align-items: center; gap: .7rem;
+  font: 600 1rem/1 var(--body); color: #12203A; background: var(--tag);
+  border: 0; border-radius: 999px; padding: .85rem 1.3rem .85rem 1rem; cursor: pointer;
+  box-shadow: 0 10px 24px -12px rgba(18, 32, 58, .6);
+  transition: transform .15s ease, background .15s ease;
+}
+.player-play:hover { background: var(--tag-deep); transform: translateY(-1px); }
+.player-icon {
+  width: 0; height: 0; border-style: solid; border-width: .45rem 0 .45rem .75rem;
+  border-color: transparent transparent transparent #12203A;
+}
+.player.is-playing .player-play { display: none; }
+.watch-note { margin: .8rem 0 0; font-size: .9rem; color: var(--ink-2); }
+
 /* Problem */
 .problem { background: var(--ink); color: var(--paper); padding: clamp(3.5rem, 7vw, 6rem) 0; }
 .problem-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 3rem; align-items: start; }

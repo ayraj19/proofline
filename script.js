@@ -158,6 +158,27 @@
   [rev, share, rate].forEach((el) => el.addEventListener("input", calc));
   calc();
 
+  /* ---------- Explainer video ---------- */
+  // The silent preview loop autoplays unless the visitor prefers reduced
+  // motion; the button swaps in the full explainer with sound and controls.
+  const player = $("player"), video = $("watchVideo"), play = $("watchPlay");
+  if (player && video && play) {
+    const reduceMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+    if (!reduceMotion) {
+      video.preload = "auto";
+      video.play().catch(() => {}); // autoplay can be blocked; the poster stays up
+    }
+    play.addEventListener("click", () => {
+      video.loop = false;
+      video.muted = false;
+      video.controls = true;
+      video.src = "media/proofline-explainer.mp4";
+      player.classList.add("is-playing");
+      video.play().catch(() => {});
+      video.focus();
+    });
+  }
+
   /* ---------- Partner form (Formspree) ---------- */
   const form = $("partnerForm"), msg = $("formMsg");
   form.addEventListener("submit", async (e) => {

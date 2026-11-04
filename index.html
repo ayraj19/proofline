@@ -21,6 +21,7 @@
         Proofline
       </a>
       <nav class="nav" aria-label="Main">
+        <a href="#watch">Watch</a>
         <a href="#how">How it works</a>
         <a href="#exposure">Exposure</a>
         <a href="#pricing">Pricing</a>
@@ -81,6 +82,27 @@
             <button class="btn" id="advance" type="button">Place agent order</button>
           </div>
         </div>
+      </div>
+    </section>
+
+    <!-- WATCH: 90-second explainer (preview loop autoplays muted; click for the full video) -->
+    <section class="watch" id="watch" aria-labelledby="watch-title">
+      <div class="wrap">
+        <div class="watch-head">
+          <h2 id="watch-title">See Proofline in 90 seconds</h2>
+          <p class="lede">How an agent order gets flagged, confirmed by the customer, and sealed long before a dispute lands.</p>
+        </div>
+        <div class="player" id="player">
+          <video id="watchVideo" class="player-video" poster="media/proofline-poster.jpg" muted loop playsinline preload="none"
+            aria-label="Preview: an agent order is flagged, confirmed by the customer and sealed">
+            <source src="media/proofline-hero.mp4" type="video/mp4">
+          </video>
+          <button class="player-play" id="watchPlay" type="button">
+            <span class="player-icon" aria-hidden="true"></span>
+            Watch the 90-second explainer
+          </button>
+        </div>
+        <p class="watch-note">Captions are built in, so it works with the sound off.</p>
       </div>
     </section>
 
